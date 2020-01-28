@@ -46,9 +46,9 @@ func (m Measurement) Name() string {
 // override the default. Set it to a zero time to unset the time, which will
 // cause telegraf or influxdb to set the time when they recieve the measurement
 // instead.
-func (m Measurement) SetTime(time time.Time) Measurement {
+func (m *Measurement) SetTime(time time.Time) Measurement {
 	m.timestamp = time
-	return m
+	return *m
 }
 
 // AddTag to the measurement. Tags are global for all fields in this
